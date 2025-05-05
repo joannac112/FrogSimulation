@@ -1,11 +1,11 @@
-java.util.Scanner;
+import java.util.Scanner;
 public class FrogSimulation {
 
     /** Distance, in inches, from the starting position to the goal. */
     private int goalDistance;
     /** Maximum number of hops allowed to reach the goal. */
     private int maxHops;
-
+    private Scanner s;
     /**
      * Constructs a FrogSimulation where dist is the distance, in inches, from the
      * starting position to the goal, and numHops is the maximum number of hops allowed to
@@ -15,6 +15,7 @@ public class FrogSimulation {
     public FrogSimulation(int dist, int numHops) {
         goalDistance = dist;
         maxHops = numHops;
+        s = new Scanner(System.in);
     }
 
     /**
@@ -22,7 +23,6 @@ public class FrogSimulation {
      * frog hops.
      */
     private int hopDistance() {
-        Scanner s = new Scanner(System.in);
         System.out.println("How far?");
         return s.nextInt();
     }
@@ -54,7 +54,7 @@ public class FrogSimulation {
         double successes = 0;
         for (int i = 0; i < num; i++){
             if (simulate()) successes++;
-            return successes/num;
         }
+        return successes/num;
     }
 }
